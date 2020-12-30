@@ -8,7 +8,7 @@ import {
 import { useTranslation } from 'react-i18next';
 
 export default function App() {
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const changeLanguage = (language) => {
     i18n.changeLanguage(language);
@@ -21,10 +21,10 @@ export default function App() {
         <div>
           <ul>
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/">{t('Home')}</Link>
             </li>
             <li>
-              <Link to="/about">About</Link>
+              <Link to="/about">{t('About')}</Link>
             </li>
           </ul>
         </div>
