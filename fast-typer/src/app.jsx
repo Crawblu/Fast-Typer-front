@@ -5,45 +5,72 @@ import {
   Route,
   Link,
 } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
-export default function BasicExample() {
+export default function App() {
+  const { i18n } = useTranslation();
+
+  const changeLanguage = (language) => {
+    i18n.changeLanguage(language);
+  };
   return (
-    <Router>
-      <div>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/about">About</Link>
-          </li>
-          <li>
-            <Link to="/dashboard">Dashboard</Link>
-          </li>
-        </ul>
+    <div className="App">
+      <button type="button" onClick={() => changeLanguage('fr')}>FR</button>
+      <button type="button" onClick={() => changeLanguage('en')}>EN</button>
+      <Router>
+        <div>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/about">About</Link>
+            </li>
+          </ul>
+        </div>
 
-        <hr />
-
-        {/*
-          A <Switch> looks through all its children <Route>
-          elements and renders the first one whose path
-          matches the current URL. Use a <Switch> any time
-          you have multiple routes, but you want only one
-          of them to render at a time
-        */}
         <Switch>
           <Route exact path="/">
             <Home />
           </Route>
-          <Route path="/about">
+          <Route>
             <About />
           </Route>
-          <Route path="/dashboard">
-            <Dashboard />
-          </Route>
         </Switch>
-      </div>
-    </Router>
+      </Router>
+    </div>
+    // <Router>
+    //   <div>
+    //     <ul>
+    //       <li>
+    //         <Link to="/">Home</Link>
+    //       </li>
+    //       <li>
+    //         <Link to="/about">About</Link>
+    //       </li>
+    //       <li>
+    //         <Link to="/dashboard">Dashboard</Link>
+    //       </li>
+    //     </ul>
+
+  //     <hr />
+
+  //     <Suspense fallback={null}>
+  //       <LanguageSelector />
+  //       <Switch>
+  //         <Route exact path="/">
+  //           <Home />
+  //         </Route>
+  //         <Route path="/about">
+  //           <About />
+  //         </Route>
+  //         <Route path="/dashboard">
+  //           <Dashboard />
+  //         </Route>
+  //       </Switch>
+  //     </Suspense>
+  //   </div>
+  // </Router>
   );
 }
 
@@ -51,25 +78,27 @@ export default function BasicExample() {
 // in your app.
 
 function Home() {
+  const { t } = useTranslation();
   return (
     <div>
-      <h2>Home</h2>
+      <h2>{t('Home')}</h2>
     </div>
   );
 }
 
 function About() {
+  const { t } = useTranslation();
   return (
     <div>
-      <h2>About</h2>
+      <h2>{t('About')}</h2>
     </div>
   );
 }
 
-function Dashboard() {
-  return (
-    <div>
-      <h2>Dashboard</h2>
-    </div>
-  );
-}
+// function Dashboard() {
+//   return (
+//     <div>
+//       <h2>Dashboard</h2>
+//     </div>
+//   );
+// }
