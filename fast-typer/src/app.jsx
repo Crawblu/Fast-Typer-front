@@ -10,6 +10,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
+// import Home from './Home';
 // import Button from '@material-ui/core/Button';
 // import IconButton from '@material-ui/core/IconButton';
 
@@ -40,6 +41,7 @@ export default function App() {
           </Toolbar>
         </AppBar>
       </div>
+      <Home />
     </div>
   );
 }
@@ -47,14 +49,14 @@ export default function App() {
 // You can think of these components as "pages"
 // in your app.
 
-// function Home() {
-//   const { t } = useTranslation();
-//   return (
-//     <div>
-//       <h2>{t('Home')}</h2>
-//     </div>
-//   );
-// }
+function Home() {
+  const { t } = useTranslation();
+  return (
+    <div>
+      <h2>{t('Home')}</h2>
+    </div>
+  );
+}
 
 // function About() {
 //   const { t } = useTranslation();
