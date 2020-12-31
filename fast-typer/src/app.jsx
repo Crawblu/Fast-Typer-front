@@ -10,9 +10,12 @@ import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
+import { Grid } from '@material-ui/core';
+// import { Grid } from '@material-ui/core';
 // import Home from './Home';
 // import Button from '@material-ui/core/Button';
 // import IconButton from '@material-ui/core/IconButton';
+import './app.css';
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -36,8 +39,14 @@ export default function App() {
         <AppBar position="static">
           <Toolbar>
             <Typography variant="h6" className={classes.title}>Fast Typer</Typography>
-            <button type="button" onClick={() => changeLanguage('fr')}>FR</button>
-            <button type="button" onClick={() => changeLanguage('en')}>EN</button>
+            <Grid container xs={12} spacing={2} justify="flex-end">
+              <Grid item>
+                <button type="button" onClick={() => changeLanguage('fr')}>FR</button>
+              </Grid>
+              <Grid item>
+                <button type="button" onClick={() => changeLanguage('en')}>EN</button>
+              </Grid>
+            </Grid>
           </Toolbar>
         </AppBar>
       </div>
