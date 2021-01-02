@@ -1,21 +1,22 @@
 import React from 'react';
-// import {
-//   BrowserRouter as Router,
-//   Switch,
-//   Route,
-//   Link,
-// } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+} from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { Grid } from '@material-ui/core';
-// import { Grid } from '@material-ui/core';
-// import Home from './Home';
-// import Button from '@material-ui/core/Button';
+import Button from '@material-ui/core/Button';
 // import IconButton from '@material-ui/core/IconButton';
+import Home from './Home';
 import './app.css';
+import FrFlag from './ressources/FranceFlag.png';
+import EnFlag from './ressources/EnglishFlag.png';
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -24,33 +25,74 @@ const useStyles = makeStyles(() => ({
   title: {
     flexGrow: 1,
   },
+  menu: {
+    flexGrow: 2,
+  },
+  language: {
+    flexGrow: 1,
+  },
 }));
 
 export default function App() {
   const classes = useStyles();
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const changeLanguage = (language) => {
     i18n.changeLanguage(language);
   };
   return (
     <div className="App">
-      <div className={classes.root}>
-        <AppBar position="static">
-          <Toolbar>
-            <Typography variant="h6" className={classes.title}>Fast Typer</Typography>
-            <Grid container xs={12} spacing={2} justify="flex-end">
-              <Grid item>
-                <button type="button" onClick={() => changeLanguage('fr')}>FR</button>
-              </Grid>
-              <Grid item>
-                <button type="button" onClick={() => changeLanguage('en')}>EN</button>
-              </Grid>
-            </Grid>
-          </Toolbar>
-        </AppBar>
-      </div>
-      <Home />
+      <Router>
+        <div className={classes.root}>
+          <AppBar position="static">
+            <Toolbar>
+              <Typography noWrap variant="h6" className={classes.title}>Fast Typer</Typography>
+              <div className={classes.menu}>
+                <Grid container xs={12} spacing={10} justify="center">
+                  <Grid item>
+                    <Button variant="h8" className={classes.title} color="primary" to="/" component={Link}>
+                      <Typography>
+                        {t('Home')}
+                      </Typography>
+                    </Button>
+                  </Grid>
+                  <Grid item>
+                    <Button variant="h8" className={classes.title} to="/about" component={Link}>
+                      <Typography>
+                        {t('About')}
+                      </Typography>
+                    </Button>
+                  </Grid>
+                </Grid>
+              </div>
+              <div className={classes.language}>
+                <Grid container xs={12} spacing={2} justify="flex-end">
+                  <Grid item>
+                    <Button type="button" onClick={() => changeLanguage('fr')}>
+                      <img className="languageButton" src={FrFlag} alt="FR" />
+                    </Button>
+                  </Grid>
+                  <Grid item>
+                    <Button type="button" onClick={() => changeLanguage('en')}>
+                      <img className="languageButton" src={EnFlag} alt="EN" />
+                    </Button>
+                  </Grid>
+                </Grid>
+              </div>
+            </Toolbar>
+          </AppBar>
+        </div>
+        <div id="content">
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route path="/about">
+              <About />
+            </Route>
+          </Switch>
+        </div>
+      </Router>
     </div>
   );
 }
@@ -58,23 +100,14 @@ export default function App() {
 // You can think of these components as "pages"
 // in your app.
 
-function Home() {
+function About() {
   const { t } = useTranslation();
   return (
     <div>
-      <h2>{t('Home')}</h2>
+      <h2>{t('About')}</h2>
     </div>
   );
 }
-
-// function About() {
-//   const { t } = useTranslation();
-//   return (
-//     <div>
-//       <h2>{t('About')}</h2>
-//     </div>
-//   );
-// }
 
 // function Dashboard() {
 //   return (
