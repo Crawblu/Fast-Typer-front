@@ -52,14 +52,14 @@ export default function App() {
                   <Grid item>
                     <Button variant="h8" className={classes.title} color="primary" to="/" component={Link}>
                       <Typography>
-                        {t('Home')}
+                        {t('Header.Home')}
                       </Typography>
                     </Button>
                   </Grid>
                   <Grid item>
                     <Button variant="h8" className={classes.title} to="/about" component={Link}>
                       <Typography>
-                        {t('About')}
+                        {t('Header.About')}
                       </Typography>
                     </Button>
                   </Grid>

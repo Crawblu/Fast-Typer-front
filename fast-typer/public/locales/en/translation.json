@@ -1,4 +1,11 @@
 {
-    "Home": "Home",
+    "Header": {
+        "Home": "Home",
+        "About": "About"
+    },
+    "Home": {
+        "Bienvenue": "Welcome on Fast Typer",
+        "Explanation": "Type the most word in one minute and become the champion of keyboard"
+    },
     "About": "About"
 }

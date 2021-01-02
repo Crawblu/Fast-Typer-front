@@ -1,4 +1,11 @@
 {
-    "Home": "Accueil",
+    "Header": {
+        "Home": "Accueil",
+        "About": "A propos"
+    },
+    "Home": {
+        "Bienvenue": "Bienvenue sur Fast Typer",
+        "Explanation": "Tapez le plus de mots en une minute et devenez le champion du clavier"
+    },
     "About": "A propos"
 }
