@@ -14,6 +14,7 @@ import { Grid } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 // import IconButton from '@material-ui/core/IconButton';
 import Home from './Home';
+import About from './about';
 import './app.css';
 import FrFlag from './ressources/FranceFlag.png';
 import EnFlag from './ressources/EnglishFlag.png';
@@ -63,6 +64,13 @@ export default function App() {
                       </Typography>
                     </Button>
                   </Grid>
+                  <Grid item>
+                    <Button variant="h8" className={classes.title} to="/profil" component={Link}>
+                      <Typography>
+                        {t('Profil')}
+                      </Typography>
+                    </Button>
+                  </Grid>
                 </Grid>
               </div>
               <div className={classes.language}>
@@ -90,6 +98,9 @@ export default function App() {
             <Route path="/about">
               <About />
             </Route>
+            <Route path="/profil">
+              <ProfilPage />
+            </Route>
           </Switch>
         </div>
       </Router>
@@ -100,11 +111,11 @@ export default function App() {
 // You can think of these components as "pages"
 // in your app.
 
-function About() {
+function ProfilPage() {
   const { t } = useTranslation();
   return (
     <div>
-      <h2>{t('About')}</h2>
+      <h2>{t('Profil')}</h2>
     </div>
   );
 }

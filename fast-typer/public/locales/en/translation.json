@@ -7,5 +7,8 @@
         "Bienvenue": "Welcome on Fast Typer",
         "Explanation": "Type the most word in one minute and become the champion of keyboard"
     },
-    "About": "About"
+    "About": {
+        "Project": "The project",
+        "desc": "Fast Typer is a project made by three students in IT. Fast Typer is a website allowing to train yourself to type fastly on Keyboard."
+    }
 }

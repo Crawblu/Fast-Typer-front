@@ -1,6 +1,8 @@
-import { Box, Typography } from '@material-ui/core';
+import { Box, TextField, Typography } from '@material-ui/core';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+
+import wordsFr from './ressources/mots';
 
 // import { makeStyles } from '@material-ui/core/styles';
 // import AppBar from '@material-ui/core/AppBar';
@@ -29,6 +31,14 @@ function Home() {
         <Box fontSize="h6.fontSize">
           {t('Home.Explanation')}
         </Box>
+        <Box>
+          {wordsFr}
+        </Box>
+        <div>
+          <form autoComplete="off">
+            <TextField id="standard-basic" />
+          </form>
+        </div>
       </Typography>
     </div>
   );

@@ -7,5 +7,9 @@
         "Bienvenue": "Bienvenue sur Fast Typer",
         "Explanation": "Tapez le plus de mots en une minute et devenez le champion du clavier"
     },
-    "About": "A propos"
+    "About": {
+        "Project": "Le projet",
+        "desc": "Fast Typer est un projet fait par trois étudiants en développement informatique. Fast Typer est un site permettant de s'entraîner à taper rapidement au clavier."
+    },
+    "Profil": "Profil"
 }
